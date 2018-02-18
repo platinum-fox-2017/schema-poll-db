@@ -1,0 +1,33 @@
+root@lupa-Aspire-E1-451G:/# sqlite3 pool.db
+SQLite version 3.19.3 2017-06-08 14:26:16
+Enter ".help" for usage hints.
+sqlite> .databases
+main: //pool.db
+
+sqlite> CREATE TABLE kandidat_penjabat (id_penjabat INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,nama TEXT,partai TEXT,location TEXT,grade_cureent TEXT,id_voting INTEGER);
+sqlite> CREATE TABLE voting (id_voting INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,firstname text,lastname text,gender text,age INTEGER)
+   ...> ;
+sqlite> .table
+kandidat_penjabat  voting
+
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,voting) VALUES ('budi','golkar','riau','gaktau',1);
+Error: table kandidat_penjabat has no column named voting
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,id_voting) VALUES ('budi','golkar','riau','gaktau',1);
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,id_voting) VALUES ('budi','golkar','riau','gaktau',2);
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,id_voting) VALUES ('anton','PAN','jambi','gaktau',3);
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,id_voting) VALUES ('sule','PDI','bandung','gaktau',4);
+sqlite> INSERT INTO kandidat_penjabat (nama,partai,location,grade_cureent,id_voting) VALUES ('sule','PDI','bandung','gaktau',5);
+
+
+sqlite> INSERT INTO voting (firstname,lastname,gender,age) VALUES ('surya','wibowo','laki-laki',24);
+sqlite> INSERT INTO voting (firstname,lastname,gender,age) VALUES ('beni','pratama','laki-laki',24);
+sqlite> INSERT INTO voting (firstname,lastname,gender,age) VALUES ('luthfi','adfadlullah','laki-laki',23);
+sqlite> INSERT INTO voting (firstname,lastname,gender,age) VALUES ('nadia','ulfa','perempuan',23);
+sqlite> INSERT INTO voting (firstname,lastname,gender,age) VALUES ('intran','driliani','perempuan',23);
+
+sqlite> select kandidat_penjabat.nama,kandidat_penjabat.partai,kandidat_penjabat.location,voting.firstname from kandidat_penjabat INNER JOIN voting ON kandidat_penjabat.id_voting=voting.id_voting;
+budi|golkar|riau|surya
+budi|golkar|riau|beni
+anton|PAN|jambi|luthfi
+sule|PDI|bandung|nadia
+sule|PDI|bandung|intran
