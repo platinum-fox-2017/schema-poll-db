@@ -1,0 +1,52 @@
+CREATE TABLE pejabat (
+  pejabat_id int NOT NULL PRIMARY KEY,
+  pejabat_nik int NOT NULL UNIQUE,
+  name VARCHAR(255),
+  gender VARCHAR(255),
+  age int,
+  party VARCHAR(255),
+  location VARCHAR(255),
+  grade_current VARCHAR(255)
+);
+
+INSERT INTO pejabat (pejabat_id, pejabat_nik, name, gender, age, party, location, grade_current)
+VALUES (1, 1290381029314, 'Oberon', 'male', 30, 'Tenn0', 'Liset', 9),
+ (2, 1231945358554, 'Ipah', 'female', 27, 'Gajah', 'Jambi', 8),
+ (3, 4396731094754, 'Dennis', 'male', 35, 'Cat', 'Jakarta', 10),
+ (4, 1555927344100, 'John', 'male', 29, 'Squid', 'Bogor', 9),
+ (5, 5710037438523, 'Jojo', 'male', 29, 'Stand', 'Bandung', 10);
+
+
+CREATE TABLE voter (
+  voter_id int NOT NULL PRIMARY KEY,
+  voter_nik int NOT NULL UNIQUE,
+  first_name VARCHAR(255),
+  last_name VARCHAR(255),
+  gender VARCHAR(255),
+  age int
+);
+
+INSERT INTO voter (voter_id, voter_nik, first_name, last_name, gender, age)
+VALUES (1, 2137543762341, 'Fransiskus', 'Teddy', 'male', 29),
+ (2, 1283784372576, 'Cake', 'Lawson', 'male', 23),
+ (3, 2141237378563, 'Jeanne', 'Calamary', 'female', 22),
+ (4, 6575834567625, 'Okita', 'Souji', 'female', 18),
+ (5, 1201956990334, 'Nero', 'Claudius', 'female', 27);
+
+
+CREATE TABLE votes (
+  vote_id int NOT NULL PRIMARY KEY,
+  pejabat_id int,
+  voter_id int,
+  FOREIGN KEY (pejabat_id) REFERENCES pejabat_id(pejabat_id),
+  FOREIGN KEY (voter_id) REFERENCES voter(voter_id)
+);
+
+INSERT INTO votes (vote_id, pejabat_id, voter_id)
+VALUES (1, 1, 2),
+ (2, 1, 1),
+ (3, 2, 4),
+ (4, 2, 4),
+ (5, 3, 5),
+ (6, 4, 3),
+ (7, 5, 1);
