@@ -1,0 +1,49 @@
+URL:
+https://www.lucidchart.com/documents/view/e827bd68-f31c-4327-875d-b3055ba5d471/0
+
+
+CREATE TABLE voter (
+voter_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+first_name TEXT NOT NULL,
+last_name TEXT NOT NULL,
+gender TEXT NOT NULL,
+age INTEGER NOT NULL
+);
+
+INSERT INTO voter (first_name, last_name, gender, age)
+VALUES ('Herby', 'Herado', 'Male', 27),
+('Walter', 'White', 'Male', 45),
+('Gustavo', 'Fring', 'Male', 35),
+('Jane', 'Smith', 'Female', 24),
+('Laura', 'Boyle', 'Female', 29);
+
+
+CREATE TABLE candidate (
+candidate_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+name TEXT NOT NULL,
+party TEXT NOT NULL,
+location TEXT NOT NULL,
+grade_current INTEGER NOT NULL
+);
+
+INSERT INTO candidate (name, party, location, grade_current)
+VALUES ('Arnold Schwarzenegger', 'Republic', 'San Francisco', 80);
+
+INSERT INTO candidate (name, party, location, grade_current)
+VALUES ('Bernie Sanders', 'Democrat', 'Washington D.C.', 85);
+
+CREATE TABLE poll (
+poll_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+candidate_id INTEGER NOT NULL,
+voter_id INTEGER NOT NULL,
+FOREIGN KEY (candidate_id) REFERENCES candidate(candidate_id),
+FOREIGN KEY (voter_id) REFERENCES voter(voter_id)
+);
+
+INSERT INTO poll (candidate_id, voter_id)
+VALUES (1,1),
+(2,1),
+(1,2),
+(2,3),
+(2,4),
+(1,5);
