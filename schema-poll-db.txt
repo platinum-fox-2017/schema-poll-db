@@ -1,1 +1,29 @@
 https://intip.in/schemapolldb
+
+QUERY:
+	CREATE TABLE:
+		1. CREATE TABLE Kandidat(id INTEGER, nama TEXT, partai TEXT, location TEXT, grade_current TEXT);
+		2. CREATE TABLE Pemilih(id INTEGER, first_name TEXT, last_name TEXT, gender TEXT, age INTEGER);
+		3. CREATE TABLE Vote(id INTEGER, idKandidat INTEGER, idPemilih INTEGER);
+
+	INSERT TABLE Kandidat:
+		1. INSERT INTO Kandidat VALUES(1, 'Marshall', 'Ketuhanan', 'Jakarta', '9.4');
+		2. INSERT INTO Kandidat VALUES(2, 'Jonah', 'Kemanusiaan', 'Jakarta', '9.5');
+		3. INSERT INTO Kandidat VALUES(3, 'Jackson', 'Persatuan', 'Bekasi', '9.5');
+		4. INSERT INTO Kandidat VALUES(4, 'Kieran', 'Kerakyatan', 'Bekasi', '9.3');
+		5. INSERT INTO Kandidat VALUES(5, 'Fiona', 'Keadilan', 'Jakarta', '9.0');
+
+	INSERT TABLE Pemilih:
+		1. INSERT INTO Pemilih VALUES(1, 'Lani', 'Rollins', 'Female', 40);
+		2. INSERT INTO Pemilih VALUES(2, 'McKenzie', 'Burris', 'Male', 42);
+		3. INSERT INTO Pemilih VALUES(3, 'Amethyst', 'Morgan', 'Male', 51);
+		4. INSERT INTO Pemilih VALUES(4, 'Lamar', 'Hardin', 'Female', 55);
+		5. INSERT INTO Pemilih VALUES(5, 'Keegan', 'Coleman', 'Male', 46);
+
+	INSERT TABLE Vote:
+		1. INSERT INTO Vote VALUES(1, 2, 1);
+		2. INSERT INTO Vote VALUES(2, 2, 4);
+		3. INSERT INTO Vote VALUES(3, 3, 2);
+		4. INSERT INTO Vote VALUES(4, 3, 3);
+		5. INSERT INTO Vote VALUES(5, 3, 5);
+		6. INSERT INTO Vote VALUES(6, 1, 1);
