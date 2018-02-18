@@ -1,0 +1,3 @@
+CREATE TABLE kandidat (id INTEGER PRIMARY KEY, name TEXT, partai TEXT, location TEXT, grade_current TEXT);
+CREATE TABLE pemvoting(id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, gender TEXT , age INTEGER);
+CREATE TABLE vote (id INTEGER PRIMRY KEY, pemvoting_id INTEGER, kandidat_id  INTEGER , FOREIGN KEY (pemvoting_id) REFERENCES pemvoting(id), FOREIGN KEY (kandidat_id) REFERENCES kandidat(id));
