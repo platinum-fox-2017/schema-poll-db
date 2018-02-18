@@ -1,0 +1,23 @@
+CREATE TABLE Politican (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, name varchar, party varchar, location varchar, grade_current integer);
+
+CREATE TABLE Vote (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, politicianId integer, votersId integer, FOREIGN KEY (politicianId) REFERENCES Politician(id), FOREIGN KEY (votersId) REFERENCES voters(id));
+
+CREATE TABLE Voters (id integer NOT NULL PRIMARY KEY AUTOINCREMENT, first_name varchar, last_name varchar, gender varchar, age integer);
+
+INSERT INTO Politican VALUES (1,'trump','amerikaparty','amerika',10);
+INSERT INTO Politican VALUES (2,'vladimir','rusiaparty','rusia',40);
+INSERT INTO Politican VALUES (3,'toyip','indoparty','indo',2);
+INSERT INTO Politican VALUES (4,'duterte','pinoyparty','pinoy',10000);
+INSERT INTO Politican VALUES (5,'kim jong un','koreaparty','korea',0);
+
+INSERT INTO Vote VALUES (1,5,1);
+INSERT INTO Vote VALUES (2,5,2);
+INSERT INTO Vote VALUES (3,2,1);
+INSERT INTO Vote VALUES (4,1,2);
+INSERT INTO Vote VALUES (5,1,3);
+
+INSERT INTO VOters VALUES (1, 'andrew','kusuma','male',25);
+INSERT INTO VOters VALUES (2, 'john','doe','male',23);
+INSERT INTO VOters VALUES (3, 'kim','kim','male',24);
+INSERT INTO VOters VALUES (4, 'kylo','ren','male',20);
+INSERT INTO VOters VALUES (5, 'sushi','ikan','female',19);
