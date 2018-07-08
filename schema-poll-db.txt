@@ -1,0 +1,40 @@
+CREATE TABLE kandidat (
+	id INTEGER PRIMARY KEY,
+	name TEXT,
+	partai TEXT,
+	location TEXT,
+	grade_current INTEGER
+);
+
+CREATE TABLE voter (
+	id INTEGER PRIMARY KEY,
+	first_name TEXT,
+	last_name TEXT,
+	gender TEXT,
+	age INTEGER
+);
+
+CREATE TABLE vote (
+	id INTEGER PRIMARY KEY,
+	idvoter INTEGER,
+	idkandidat INTEGER
+);
+
+INSERT INTO kandidat (id, name, partai, location, grade_current) VALUES (1, 'Ridwan Kamil', 'PAN', 'Jawa Barat', 5);
+INSERT INTO kandidat (id, name, partai, location, grade_current) VALUES (2, 'UU Raznul Ulum', 'PAN', 'Jawa Barat', 3);
+INSERT INTO kandidat (id, name, partai, location, grade_current) VALUES (3, 'Dedy Mizwar', 'Demokrat', 'Jawa Barat', 5);
+INSERT INTO kandidat (id, name, partai, location, grade_current) VALUES (4, 'Emil Dardak', 'Demokrat', 'Jawa Timur', 3);
+INSERT INTO kandidat (id, name, partai, location, grade_current) VALUES (5, 'Kofifah', 'Demokrat', 'Jawa Timur', 5);
+
+INSERT INTO  voter (id, first_name, last_name, gender, age) VALUES (1, 'Fadhil', 'Mochammad', 'Male', 17);
+INSERT INTO  voter (id, first_name, last_name, gender, age) VALUES (2, 'Iqbal', 'Surya', 'Male', 27);
+INSERT INTO  voter (id, first_name, last_name, gender, age) VALUES (3, 'Ilham', 'Perdana', 'Male', 37);
+INSERT INTO  voter (id, first_name, last_name, gender, age) VALUES (4, 'Adit', 'Rachman', 'Male', 47);
+INSERT INTO  voter (id, first_name, last_name, gender, age) VALUES (5, 'Dono', 'Kasino', 'Male', 57);
+
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (1, 1, 1);
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (2, 2, 1);
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (3, 1, 2);
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (4, 3, 3);
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (5, 1, 4);
+INSERT INTO  vote (id, idKandidat, idVoter) VALUES (6, 3, 5);
