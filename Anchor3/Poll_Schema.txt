@@ -1,0 +1,77 @@
+https://imgur.com/gallery/LOmQ8Eb
+
+CREATE TABLE KandidatPejabat (
+   ...> KPID INTEGER NOT NULL PRIMARY KEY,
+   ...> Name TEXT,
+   ...> Partai TEXT,
+   ...> Location TEXT,
+   ...> GradeCurrent) ;
+
+sqlite> INSERT INTO KandidatPejabat VALUES (1,'rosa','Golkar','Jakarta','S1');
+sqlite> INSERT INTO KandidatPejabat VALUES (2,'rasa','PDIP','Jakarta','S2');
+sqlite> INSERT INTO KandidatPejabat VALUES (3,'yang','Demokrat','Jakarta','D3');
+sqlite> INSERT INTO KandidatPejabat VALUES (4,'pernah','Demokrat','Lampung','D1');
+sqlite> INSERT INTO KandidatPejabat VALUES (5,'ada','Demokrat','Lampung','D2');
+
+sqlite> SELECT * FROM KandidatPejabat;
+
+KPID        Name        Partai      Location    GradeCurrent
+----------  ----------  ----------  ----------  ------------
+1           rosa        Golkar      Jakarta     S1
+2           rasa        PDIP        Jakarta     S2
+3           yang        Demokrat    Jakarta     D3
+4           pernah      Demokrat    Lampung     D1
+5           ada         Demokrat    Lampung     D2
+
+==================================================================================
+
+ CREATE TABLE Voters (
+   ...> VotersID INTEGER NOT NULL PRIMARY KEY,
+   ...> FirstName TEXT,
+   ...> LastName TEXT,
+   ...> Gender TEXT,
+   ...> Age INTEGER );
+
+sqlite> INSERT INTO Voters VALUES (1,'marco','sumali','Pria',28);
+sqlite> INSERT INTO Voters VALUES (2,'mario','sumali','Pria',24);
+sqlite> INSERT INTO Voters VALUES (3,'marcel','sumali','Pria',18);
+sqlite> INSERT INTO Voters VALUES (4,'martin','sumali','Pria',14);
+sqlite> INSERT INTO Voters VALUES (5,'markos','sumali','Pria',10);
+
+sqlite> SELECT * FROM Voters
+   ...> ;
+
+VotersID    FirstName   LastName    Gender      Age
+----------  ----------  ----------  ----------  ----------
+1           marco       sumali      Pria        28
+2           mario       sumali      Pria        24
+3           marcel      sumali      Pria        18
+4           martin      sumali      Pria        14
+5           markos      sumali      Pria        10
+
+==================================================================================
+
+sqlite> CREATE TABLE KP_Voters (
+   ...> ID INTEGER NOT NULL PRIMARY KEY,
+   ...> KPID INTEGER,
+   ...> VotersID INTEGER,
+   ...> FOREIGN KEY (KPID) REFERENCES KandidatPejabat (KPID),
+   ...> FOREIGN KEY (VotersID) REFERENCES Voters (VotersID) );
+
+
+sqlite> INSERT INTO KP_Voters VALUES (1,2,1);
+sqlite> INSERT INTO KP_Voters VALUES (2,3,2);
+sqlite> INSERT INTO KP_Voters VALUES (3,1,3);
+sqlite> INSERT INTO KP_Voters VALUES (4,5,4);
+sqlite> INSERT INTO KP_Voters VALUES (5,1,5);
+
+sqlite> SELECT * FROM KP_VOters;
+
+ID          KPID        VotersID
+----------  ----------  ----------
+1           2           1
+2           3           2
+3           1           3
+4           5           4
+5           1           5
+
